@@ -39,8 +39,11 @@ function stopSubWatch(bot, chan){
   delete interval[chan]
 }
 
+function randomQuote(quote){
+  return quote[Math.floor(Math.random()*quote.length)]
+}
+
 async function rssFeed(latest, sub) {
-  const randomSnark = snark[Math.floor(Math.random()*snark.length)]
   let newItems      = []
   let feed          = await parser.parseURL(`https://www.reddit.com/r/${ sub }/new.rss`)
 
@@ -48,7 +51,7 @@ async function rssFeed(latest, sub) {
     const date = new Date(item.pubDate)
 
     if (date > latest){
-      newItems.push(`${ randomSnark }: ${ item.title } - ${ item.link }`)
+      newItems.push(`${ randomQuote(snark) }: ${ item.title } - ${ item.link }`)
     }
   })
 
