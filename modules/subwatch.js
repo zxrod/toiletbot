@@ -3,7 +3,6 @@ const parser = new Parser()
 const config = require('../config')
 
 const  { snark }  = config
-const randomSnark = snark[Math.floor(Math.random()*snark.length)]
 let now           = Date.now()
 let interval      = {}
 
@@ -41,8 +40,9 @@ function stopSubWatch(bot, chan){
 }
 
 async function rssFeed(latest, sub) {
-  let newItems = []
-  let feed = await parser.parseURL(`https://www.reddit.com/r/${ sub }/new.rss`)
+  const randomSnark = snark[Math.floor(Math.random()*snark.length)]
+  let newItems      = []
+  let feed          = await parser.parseURL(`https://www.reddit.com/r/${ sub }/new.rss`)
 
   feed.items.forEach(item => {
     const date = new Date(item.pubDate)
