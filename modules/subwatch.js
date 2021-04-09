@@ -2,13 +2,15 @@ const Parser = require('rss-parser')
 const parser = new Parser()
 const config = require('../config')
 
-const  { snark }  = config
-let now           = Date.now()
-let interval      = {}
+const subwatchConfig                     = config.subwatch
+const  { snark, channels, refreshRate }  = subwatchConfig
+let now                                  = Date.now()
+let interval                             = {}
 
 const start = (bot, chan) =>
   setInterval(() =>{
-    const chanSettings = config.subwatch.channels.find(channel => channel.name === chan)
+    const chanSettings = channels.find(channel => channel.name === chan)
+    console.log(refreshRate)
     chanSettings.subs.forEach(sub => {
       rssFeed(now, sub).then((newItems) => {
         console.log(`refreshed subwatch for ${chan}`)
@@ -18,10 +20,10 @@ const start = (bot, chan) =>
         }
       })
     })
-  }, 15000)
+  }, refreshRate)
 
 async function startSubWatch(bot, chan){
-  if (config.subwatch.channels.find(channel => channel.name === chan)) {
+  if (channels.find(channel => channel.name === chan)) {
     if (!Object.keys(interval).includes(chan)) {
       now = Date.now()
       interval[chan] = await start(bot, chan)
@@ -39,13 +41,13 @@ function stopSubWatch(bot, chan){
   delete interval[chan]
 }
 
-function randomQuote(quote){
-  return quote[Math.floor(Math.random()*quote.length)]
+function randomQuote(quotes){
+  return quotes[Math.floor(Math.random()*quotes.length)]
 }
 
 async function rssFeed(latest, sub) {
-  let newItems      = []
-  let feed          = await parser.parseURL(`https://www.reddit.com/r/${ sub }/new.rss`)
+  let newItems = []
+  let feed     = await parser.parseURL(`https://www.reddit.com/r/${ sub }/new.rss`)
 
   feed.items.forEach(item => {
     const date = new Date(item.pubDate)

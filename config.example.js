@@ -18,17 +18,14 @@ module.exports = {
   // NickServ Password:
   nickservPassword: '',
 
-  // Bot's opinion of the reddit feed
-  snark: ['STINKY DOODY', 'PROBABLY A BAD POST', '🚽💩🧻👝🧴', '💩💩💩', '🚽💩🧻 ALERT', 'CIRCLING THE DRAIN'],
-
   // Reddit subs to watch
   subwatch: {
+    // rate in ms to refresh the rss feed
+    refreshRate: 15000,
+    // Bot's opinion of the reddit feed
+    snark: ['STINKY DOODY', 'PROBABLY A BAD POST', '🚽💩🧻👝🧴', '💩💩💩', '🚽💩🧻 ALERT', 'CIRCLING THE DRAIN'],
     channels: [{
-      name: '#portland',
-      subs: ['portland']
-    },
-    {
-      name: '#zxbot',
+      name: '#channel',
       subs: ['portland']
     }]
   }
