@@ -19,17 +19,17 @@ module.exports = {
   nickservPassword: '',
 
   // Bot's opinion of the reddit feed
-  snark: ['STINKY DOODY', 'PROBABLY A BAD POST', '🚽💩🧻👝🧴', '💩💩💩', '🚽💩🧻 ALERT', 'CIRCLING THE DRAIN'],
+  snark: ['STINKY DOODY', 'PROBABLY A BAD POST', '🚽💩🧻👝🧴', '💩💩💩', '🚽💩🧻 ALERT', 'CIRCLING THE DRAIN','APPROVED BY DDSB'],
 
   // Reddit subs to watch
   subwatch: {
     channels: [{
       name: '#portland',
-      subs: ['portland']
+      subs: ['portland','askportland','pdx','portlandgaming','pdx4trump','cyclepdx']
     },
     {
       name: '#zxbot',
-      subs: ['portland']
+      subs: ['portland','askportland','pdx','portlandgaming','pdx4trump','cyclepdx']
     }]
   }
 }
