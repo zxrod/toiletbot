@@ -49,10 +49,7 @@ async function rssFeed(latest, sub) {
 
   feed.items.forEach(item => {
     const date = new Date(item.pubDate)
-
-    if (date > latest){
-      newItems.push(`${ randomQuote(snark) }: ${ item.title } - ${ item.link }`)
-    }
+    if (date > latest) newItems.push(`${ randomQuote(snark) }: ${ item.title } - ${ item.link }`)
   })
 
   return newItems
