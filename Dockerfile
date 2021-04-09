@@ -4,7 +4,6 @@ FROM ${BUILD_BASE_IMAGE}
 
 RUN echo NODE_ENV ${BUILD_NODE_ENV}
 
-ENV PHANTOMJS_VERSION=2.1.1
 RUN apk add --no-cache \
   autoconf \
   automake \
