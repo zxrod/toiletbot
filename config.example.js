@@ -18,15 +18,32 @@ module.exports = {
   // NickServ Password:
   nickservPassword: '',
 
+  /* Style info:
+    ** STYLES AREN'T WORKING IN DOCKER CURRENTLY
+    Responses in arrays can either be a string or object { style, text }
+    Style options:
+    ['white', 'black', 'navy', 'green', 'red', 'brown', 'purple', 'olive', 'yellow',
+     'lime', 'teal', 'cyan', 'blue', 'pink', 'gray', 'grey', 'silver', 'bold', 'italic', 'underline',
+     'inverse', 'strikethrough', 'monospace', 'rainbow', 'random']
+   */
   // Reddit subs to watch
   subwatch: {
     // rate in ms to refresh the rss feed
     refreshRate: 15000,
     // Bot's opinion of the reddit feed
-    snark: ['STINKY DOODY', 'PROBABLY A BAD POST', '🚽💩🧻👝🧴', '💩💩💩', '🚽💩🧻 ALERT', 'CIRCLING THE DRAIN'],
-    channels: [{
-      name: '#channel',
-      subs: ['portland']
-    }]
+    snark: [
+      { style: 'random',  text: 'STINKY DOODY' },
+      { style: 'random',  text: 'PROBABLY A BAD POST' },
+      '🚽💩🧻👝🧴',
+      '💩💩💩',
+      '🚽💩🧻 ALERT',
+      { style: 'random',  text: 'CIRCLING THE DRAIN' },
+    ],
+    channels: [
+      {
+        name: '#toiletbot',
+        subs: ['portland']
+      }
+    ]
   }
 }
