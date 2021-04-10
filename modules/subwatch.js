@@ -12,9 +12,7 @@ let interval                             = {}
 // runs at bot startup
 async function init(bot) {
   const startChans = channels.filter(channel => channel.defaultState === 'on')
-  for (const chan of startChans){
-    await startSubWatch(bot, chan.name)
-  }
+  for (const chan of startChans) await startSubWatch(bot, chan.name)
 }
 
 const start = (bot, chan) =>
