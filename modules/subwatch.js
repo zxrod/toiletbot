@@ -9,6 +9,14 @@ const  { snark, channels, refreshRate }  = subwatchConfig
 let now                                  = Date.now()
 let interval                             = {}
 
+// runs at bot startup
+async function init(bot) {
+  const startChans = channels.filter(channel => channel.defaultState === 'on')
+  for (const chan of startChans){
+    await startSubWatch(bot, chan.name)
+  }
+}
+
 const start = (bot, chan) =>
   setInterval(() =>{
     const chanSettings = channels.find(channel => channel.name === chan)
@@ -54,6 +62,6 @@ async function rssFeed(latest, sub) {
   return newItems
 }
 
-const subwatch = { start: startSubWatch, stop: stopSubWatch }
+const subwatch = { start: startSubWatch, stop: stopSubWatch, init }
 
 module.exports = { subwatch }

@@ -42,6 +42,7 @@ module.exports = {
     channels: [
       {
         name: '#toiletbot',
+        defaultState: 'on',
         subs: ['portland']
       }
     ]
