@@ -1,5 +1,4 @@
 const Parser       = require('rss-parser')
-const c            = require('irc-colors')
 const parser       = new Parser()
 const config       = require('../config')
 const randomQuote  = require('../lib/randomQuote')

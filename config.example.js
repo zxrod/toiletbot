@@ -19,7 +19,6 @@ module.exports = {
   nickservPassword: '',
 
   /* Style info:
-    ** STYLES AREN'T WORKING IN DOCKER CURRENTLY
     Responses in arrays can either be a string or object { style, text }
     Style options:
     ['white', 'black', 'navy', 'green', 'red', 'brown', 'purple', 'olive', 'yellow',
