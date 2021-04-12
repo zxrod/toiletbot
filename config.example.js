@@ -45,5 +45,29 @@ module.exports = {
         subs: ['portland']
       }
     ]
+  },
+
+  autoresponder: {
+    global: [
+      {
+        trigger: '!source',
+        responses: ['https://github.com/zxrod/toiletbot']
+      }
+    ],
+    channels: [
+      {
+        name: '#toiletbot',
+        triggers: [
+          {
+            trigger: 'antifa',
+            responses: [
+              { style: 'rainbow', text: 'A N T I F A ' },
+              { style: 'random',  text: 'Bash the fash!' },
+              { style: 'random',  text: 'ACAB' }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
