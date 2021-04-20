@@ -52,7 +52,7 @@ async function rssFeed(latest, sub) {
   const feed   = await parser.parseURL(`https://www.reddit.com/r/${ sub }/new.rss`)
   for (const item of feed.items) {
     const date = new Date(item.pubDate)
-    if (date > latest) newItems.push(`${ randomQuote(snark) }: r/${ sub } - ${ item.title } - ${ item.link }`)
+    if (date > latest) newItems.push(`${ randomQuote(snark) }: r/${ sub } - ${ item.author } - ${ item.title } - ${ item.link }`)
   }
 
   return newItems
